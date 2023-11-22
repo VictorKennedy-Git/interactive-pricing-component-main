@@ -1,0 +1,340 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    outline-style: none;
+    font-family: 'Manrope', sans-serif;
+}
+
+:root {
+    /* Primary Colors */
+    --soft-cyan: hsl(174, 77%, 80%);
+    --strong-cyan: hsl(174, 86%, 45%);
+    --light-grayish-red: hsl(14, 92%, 95%);
+    --light-red: hsl(15, 100%, 70%);
+    --pale-blue: hsl(226, 100%, 87%);
+
+    /* Neutral Colors */
+    --white: hsl(0, 0%, 100%);
+    --very-pale-blue: hsl(230, 100%, 99%);
+    --light-grayish-blue-empty-slider-bar: hsl(224, 65%, 95%);
+    --light-grayish-blue-toggle-background: hsl(223, 50%, 87%);
+    --grayish-blue-text: hsl(225, 20%, 60%);
+    --dark-desaturated-blue: hsl(227, 35%, 25%);
+
+}
+
+body {
+    background: url(./images/bg-pattern.svg) no-repeat top right;
+    background-size: 100% 40%;
+    background-clip: content-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 12px;
+    height: 100vh;
+}
+
+h1, h2, h3, h4 {
+    color: var(--dark-desaturated-blue);
+}
+
+p, span, li {
+    color: var(--grayish-blue-text);
+}
+
+main {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    justify-content: space-around;
+    height: 90vh;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: url("./images/pattern-circles.svg") no-repeat center;
+    height: 30vw;
+
+}
+
+form {
+    box-shadow: 1px 1px 3px 2px hsl(223, 50%, 87%);
+    border-radius: 2%;
+
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    padding: 2rem;
+}
+
+section.card-top {
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    border-bottom: 1px solid var(--light-grayish-blue-empty-slider-bar);
+}
+
+section.card-bt {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+ul {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+li img {
+    width: 0.8rem;
+}
+
+input[type="button"] {
+    background-color: var(--dark-desaturated-blue);
+    width: 60%;
+    margin: 0px auto;
+
+    border: none;
+    padding-block: 1rem;
+
+    font-size: 1rem;
+    color: var(--pale-blue);
+    border-radius: 2rem;
+
+    cursor: pointer;
+}
+
+input[type="button"]:hover{
+    color: var(--white);
+    transition: 0.5s;
+}
+
+#mode-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* FORMATATION CHECKBOX */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 58px;
+    height: 28px;
+}
+
+/* Estilizando a caixa do switch */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Estilizando o slider (a "alavanca" do switch) */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 32px;
+}
+
+/* Mudando a cor do slider quando o checkbox está marcado */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* Mudando a cor do slider para indicar que o switch está ligado */
+input:checked+.slider {
+    background-color: var(--strong-cyan);
+}
+
+/* Movendo o slider para a direita quando o checkbox está marcado */
+input:checked+.slider:before {
+    transform: translateX(29px);
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-progress-appearance: none;
+
+    background-color: var(--soft-cyan);
+    border-radius: 1rem;
+    height: 0.8rem;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: var(--strong-cyan);
+    background-image: url(./images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60% 30%;
+
+    height: 3.2rem;
+    width: 3.2rem;
+    border-radius: 100%;
+    box-shadow: 0 1rem 4rem 0.1rem var(--strong-cyan);
+
+}
+
+input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    background-color: var(--strong-cyan);
+    background-image: url(./images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60% 30%;
+
+    height: 3.2rem;
+    width: 3.2rem;
+    border-radius: 100%;
+    box-shadow: 0 1rem 4rem 0.1rem var(--strong-cyan);
+
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+    background-color: var(--soft-cyan);
+    cursor: grab;
+}
+
+input[type="range"]::-moz-range-thumb:active {
+    background-color: var(--soft-cyan);
+    cursor: grab;
+
+}
+
+
+form h1, span#valor {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--dark-desaturated-blue);
+    font-weight: bold;
+}
+
+form h1 span {
+    font-size: 1.2rem;
+
+    font-weight: normal;
+}
+
+#discount {
+    background-color: var(--light-grayish-red);
+    color: var(--light-red);
+    padding-inline: 0.5rem;
+    border-radius: 3rem;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 1440px) {
+    body{
+        font-size: 16px;
+    }
+
+    header{
+        height: 10vw;
+    }
+    form{
+        width: 60%;
+        margin: 0px auto;
+
+        padding-inline: 2rem;
+    }
+    section.card-top{
+        display: grid;
+        gap: 0;
+        grid-template-areas: 
+        "col1 col2"
+        "linha2 linha2"
+        "linha3 linha3"
+        ;
+
+        align-items: center;
+    }
+
+    section.card-top h4{
+        grid-area: col1;
+        text-align: left;
+    }
+    
+    section.card-top h1{
+        grid-area: col2;
+        justify-content: right;
+    }
+
+    section.card-top input{
+        grid-area: linha2;
+
+        margin-block: 2rem 4rem ;
+    }
+
+    section.card-top #mode-container{
+        grid-area: linha3;
+    }
+
+    section.card-bt{
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    input[type="button"]{
+        width: 30%;
+    
+        padding-block: 1rem;
+    
+        font-size: 1rem;
+        color: var(--pale-blue);
+        border-radius: 2rem;
+        
+        height: max-content;
+        margin: 0;
+    }
+
+    #discount::after{
+        content: " discount";
+    }
+}
